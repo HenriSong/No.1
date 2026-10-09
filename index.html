@@ -1,319 +1,438 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henri & Co. Academics | Elite Ivy League Admissions, Tours & Consulting</title>
-    <style>
-        /* Ivy League / Old Money Prestige Palette */
-        :root {
-            --crimson: #A51C30;   /* Harvard Crimson */
-            --yale-blue: #00356B; /* Yale Blue */
-            --gold: #C5A059;      /* Old Money Matte Gold */
-            --dark: #111111;      /* Deep Midnight Black */
-            --cream: #FAF8F5;     /* Soft Premium Paper Background */
-            --white: #FFFFFF;
-        }
-
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: var(--cream);
-            color: var(--dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        /* Luxury Header */
-        header {
-            text-align: center;
-            padding: 80px 20px 40px 20px;
-            background-color: var(--white);
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .logo-area {
-            display: inline-block;
-            border: 1px solid var(--gold);
-            padding: 20px 40px;
-            margin-bottom: 15px;
-        }
-
-        .parent-logo {
-            font-size: 2.6rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            font-weight: 400;
-            margin: 0;
-            color: var(--dark);
-        }
-
-        .branch-sub {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: var(--crimson);
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        /* Content Container */
-        .main-container {
-            max-width: 1050px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .content-card {
-            background: var(--white);
-            padding: 60px;
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.02);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 400;
-            text-align: center;
-            color: var(--yale-blue);
-            margin-top: 0;
-        }
-
-        .aspiration-quote {
-            font-style: italic;
-            text-align: center;
-            font-size: 1.25rem;
-            color: #333333;
-            margin: 40px auto;
-            max-width: 750px;
-            line-height: 1.8;
-            border-left: 2px solid var(--crimson);
-            border-right: 2px solid var(--crimson);
-            padding: 0 30px;
-        }
-
-        .section-heading {
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--gold);
-            border-bottom: 1px solid #EAEAEA;
-            padding-bottom: 8px;
-            margin-top: 50px;
-            font-weight: bold;
-        }
-
-        /* Grid for Academic Catalog */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 25px;
-        }
-
-        .service-card strong {
-            display: block;
-            font-size: 1.15rem;
-            color: var(--dark);
-            margin-bottom: 6px;
-        }
-
-        .service-card p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #555555;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Premium Pricing Tables - Updated to 3 Columns */
-        .pricing-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .price-card {
-            border: 1px solid #EAEAEA;
-            padding: 30px 20px;
-            background: #FAFAFA;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .price-card.featured {
-            border: 2px solid var(--crimson);
-            background: var(--white);
-            box-shadow: 0 10px 30px rgba(165, 28, 48, 0.05);
-        }
-
-        .price-card.premium-tour {
-            border: 2px solid var(--gold);
-            background: #FCF9F3;
-        }
-
-        .price-title {
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .price-amt {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .price-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-            text-align: left;
-            font-family: Arial, sans-serif;
-            font-size: 0.9rem;
-            color: #444444;
-        }
-
-        .price-features li {
-            margin-bottom: 12px;
-            padding-left: 18px;
-            position: relative;
-            line-height: 1.4;
-        }
-
-        .price-features li::before {
-            content: "•";
-            color: var(--gold);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Premium Form Layout */
-        .form-section {
-            background: #FAF8F5;
-            padding: 45px;
-            border-top: 3px solid var(--crimson);
-            margin-top: 50px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #DCD6CD;
-            background: var(--white);
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--crimson);
-        }
-
-        button {
-            width: 100%;
-            padding: 18px;
-            color: var(--white);
-            background: var(--crimson);
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background: var(--yale-blue);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 0.8rem;
-            color: #999999;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 900px) {
-            .services-grid, .pricing-container { grid-template-columns: 1fr; }
-            .content-card { padding: 30px; }
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2775.1">
+  <style type="text/css">
+    body {background-color: #f9f6f2}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 31.2px 'Times New Roman'; color: #0e0e0e; -webkit-text-stroke: #0e0e0e; background-color: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 31.2px 'Times New Roman'; color: #0e0e0e; -webkit-text-stroke: #0e0e0e; background-color: #ffffff; min-height: 36.0px}
+    span.s1 {font-kerning: none}
+  </style>
 </head>
 <body>
-
-    
-    <header>
-        <div class="logo-area">
-            <h1 class="parent-logo">Henri & Co.</h1>
-            <div class="branch-sub">Academics</div>
-        </div>
-    </header>
-
-    <div class="main-container">
-        <div class="content-card">
-            
-            <h2>Institutional Curation & Bespoke Mentorship</h2>
-            
-            <div class="aspiration-quote">
-                "Promising Harvard-style pedagogy, elite academic mentorship, and the strategic insider perspective required to successfully command placement within the world's most prestigious institutional echelons."
-            </div>
-
-            <!-- CURRICULUM CATALOG -->
-            <div class="section-heading">Bespoke Scholastic Instruction (K - College)</div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <strong>Advanced Sciences & Anatomy</strong>
-                    <p>Rigorous modules spanning Physics, Chemistry, Biology, and specialized introductory Neuroscience frameworks.</p>
-                </div>
-                <div class="service-card">
-                    <strong>Pure & Applied Mathematics</strong>
-                    <p>Comprehensive acceleration tracks guiding students cleanly through Algebra, Geometry, and multi-tier Calculus mastery.</p>
-                </div>
-                <div class="service-card">
-                    <strong>The Classics & Rhetoric</strong>
-                    <p>Cultivating rich intellectual lineage via deep text studies, classical literature analysis, and formal debate articulation.</p>
-                </div>
-                <div class="service-card">
-                    <strong>Critical Thinking Architecture</strong>
-                    <p>Bespoke executive cognitive training focusing heavily on advanced logic patterns and strategic problem-solving.</p>
-                </div>
-            </div>
-
-            <!-- ADMISSIONS STRATEGY -->
-            <div class="section-heading">Elite Institutional Positioning & Legal Alignment</div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <strong>US Private Prep School Strategy</strong>
-                    <p>Extracurricular architecture and complete profile optimization tailored specifically for top-tier American boarding and day schools.</p>
-                </div>
-                <div class="service-card">
-                    <strong>Ivy League Admissions Consulting</strong>
-                    <p>End-to-end application orchestration, elite hook discovery, narrative curation, and premium essay construction.</p>
-                </div>
-                <div class="service-card">
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Henri &amp; Co. Academics | Elite Ivy League Admissions, Tours &amp; Consulting&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Ivy League / Old Money Prestige Palette */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>:root {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--crimson: #A51C30; <span class="Apple-converted-space">  </span>/* Harvard Crimson */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--yale-blue: #00356B; /* Yale Blue */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--gold: #C5A059;<span class="Apple-converted-space">      </span>/* Old Money Matte Gold */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--dark: #111111;<span class="Apple-converted-space">      </span>/* Deep Midnight Black */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--cream: #FAF8F5; <span class="Apple-converted-space">    </span>/* Soft Premium Paper Background */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>--white: #FFFFFF;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Times New Roman', Times, serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--cream);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--dark);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.6;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Luxury Header */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>header {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 80px 20px 40px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: var(--white);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid var(--gold);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.logo-area {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: inline-block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid var(--gold);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.parent-logo {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2.6rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 400;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--dark);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.branch-sub {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Content Container */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.main-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 1050px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 40px auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.content-card {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: var(--white);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(197, 160, 89, 0.15);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 30px 60px rgba(0,0,0,0.02);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h2 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.8rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 3px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 400;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--yale-blue);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.aspiration-quote {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-style: italic;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.25rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #333333;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 40px auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 750px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.8;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-left: 2px solid var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-right: 2px solid var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.section-heading {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 3px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--gold);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #EAEAEA;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-bottom: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 50px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Grid for Academic Catalog */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.services-grid {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr 1fr;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 25px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.service-card strong {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.15rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--dark);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 6px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.service-card p {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #555555;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Premium Pricing Tables - Symmetrical 3 Columns */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.pricing-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr 1fr 1fr;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-card {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #EAEAEA;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 30px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #FAFAFA;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: space-between;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-card.featured {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 2px solid var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: var(--white);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 30px rgba(165, 28, 48, 0.05);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-card.premium-tour {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 2px solid var(--gold);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #FCF9F3;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-title {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.15rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-amt {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--dark);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-features {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>list-style: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 0 20px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: left;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #444444;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-features li {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-left: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.4;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.price-features li::before {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>content: "•";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--gold);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Premium Form Layout */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.form-section {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #FAF8F5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 45px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-top: 3px solid var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 50px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.form-group {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 25px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>label {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 1px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input, textarea, select {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid #DCD6CD;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: var(--white);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input:focus, textarea:focus, select:focus {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>outline: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-color: var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 18px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: var(--white);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: var(--crimson);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 3px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: background 0.3s ease;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: var(--yale-blue);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>footer {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 60px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #999999;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Responsive Breakpoint for Mobile Screens */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media (max-width: 900px) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.services-grid, .pricing-container { grid-template-columns: 1fr; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.content-card { padding: 30px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="logo-area"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1 class="parent-logo"&gt;Henri &amp; Co.&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="branch-sub"&gt;Academics&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="main-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="content-card"&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Institutional Curation &amp; Bespoke Mentorship&lt;/h2&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="aspiration-quote"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>"Promising Harvard-style pedagogy, elite academic mentorship, and the strategic insider perspective required to successfully command placement within the world's most prestigious institutional echelons."</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- CURRICULUM CATALOG --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="section-heading"&gt;Bespoke Scholastic Instruction (K - College)&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="services-grid"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;Advanced Sciences &amp; Anatomy&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Rigorous modules spanning Physics, Chemistry, Biology, and specialized introductory Neuroscience frameworks.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;Pure &amp; Applied Mathematics&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Comprehensive acceleration tracks guiding students cleanly through Algebra, Geometry, and multi-tier Calculus mastery.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;The Classics &amp; Rhetoric&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Cultivating rich intellectual lineage via deep text studies, classical literature analysis, and formal debate articulation.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;Critical Thinking Architecture&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Bespoke executive cognitive training focusing heavily on advanced logic patterns and strategic problem-solving.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- ADMISSIONS STRATEGY --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="section-heading"&gt;Elite Institutional Positioning &amp; Legal Alignment&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="services-grid"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;US Private Prep School Strategy&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Extracurricular architecture and complete profile optimization tailored specifically for top-tier American boarding and day schools.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;Ivy League Admissions Consulting&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;End-to-end application orchestration, elite hook discovery, narrative curation, and premium essay construction.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;Immigration Integration Assistance&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Dedicated transitional guidance matched with custom introductions to elite, specialized US immigration legal counsel.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="section-heading"&gt;Global Educational Tourism&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="services-grid"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;East Coast Ivy Immersion&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Exclusive, curated delegations exploring historic elite institutions including Harvard, Yale, Princeton, and Columbia. Includes private campus architecture briefings and mentor meetups.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="service-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;West Coast Elite Academic Tracks&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Bespoke cultural and scholarly journeys mapping the technological and creative dominance of Stanford, UC Berkeley, and top-tier California preparatory academies.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="section-heading"&gt;Private Cohort Investment Tiers&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="pricing-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="price-card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="price-title"&gt;The Academic Scholar&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="price-amt"&gt;$150&lt;span style="font-size:1rem; font-weight:normal;"&gt; / hr&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;ul class="price-features"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;One-on-one elite custom subject instruction&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Harvard-style mentorship &amp; diagnostic reviews&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Advanced critical thinking &amp; acceleration&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Flexible scheduler priority access&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="price-card featured"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="price-title" style="color: var(--crimson);"&gt;The Ivy Vanguard&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="price-amt"&gt;$1,250&lt;span style="font-size:1rem; font-weight:normal;"&gt; / pkg&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;ul class="price-features"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Comprehensive 4-Year Application Roadmap&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Extracurricular portfolio audit &amp; optimization&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Prep school / Ivy League target mapping&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Attorney matchmaking &amp; immigration alignment&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="price-card premium-tour"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="price-title" style="color: var(--gold);"&gt;The Grand Horizon Tour&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="price-amt"&gt;$7,500+&lt;span style="font-size:1rem; font-weight:normal;"&gt; / student&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;ul class="price-features"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Fully curated East Coast vs. West Coast elite tours&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Private briefings with current elite students &amp; alumni&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Luxury itinerary orchestration (Transit &amp; Accommodations)&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;li&gt;Admissions diagnostic mapping during the tour&lt;/li&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="form-section"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 style="text-align: left; margin-bottom: 10px; color: var(--dark);"&gt;Request a Private Consultation&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p style="font-family: Arial, sans-serif; font-size: 0.95rem; color: #555555; margin-bottom: 25px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>Cohort spacing is heavily restricted to guarantee unparalleled attention per scholar.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;form name="parent-contact" method="POST" data-netlify="true"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;label for="parent-name"&gt;Parent Name&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="text" id="parent-name" name="parent-name" placeholder="Enter your full name" required&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;label for="parent-email"&gt;Personal Email Address&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="email" id="parent-email" name="parent-email" placeholder="Enter your active personal email" required&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;label for="trajectory"&gt;Target Academic Trajectory&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;select id="trajectory" name="trajectory" required&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;option value="" disabled selected&gt;Select baseline focus...&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;option value="primary"&gt;Primary Scholar (K - 5th Grade)&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;option value="prep-school"&gt;US Top Private Prep School Track (6th - 11th)&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;option value="ivy-league"&gt;Ivy League / Tier-1 University Applicant (12th / Transfer)&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;option value="educational-tourism"&gt;International Educational Delegation / School Tours&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;label for="message"&gt;Scholastic Aspirations &amp; Message&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;textarea id="message" name="message" rows="5" placeholder="Tell us about your scholar's academic background and timelines..." required&gt;&lt;/textarea&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button type="submit"&gt;Submit Private Intake Request&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/form&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>THEHENRIANDCO.COM &amp;copy; ALL RIGHTS RESERVED</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+</body>
+</html>
